@@ -18,14 +18,12 @@
     "meow": "^3.3.0"
   },
   "devDependencies": {
-    "babel": "^5.5.6",
-    "mocha": "^2.2.5"
+    "babel": "^5.5.6"
   },
   "bin": {
     "cbr-rates": "cli.es5.js"
   },
   "scripts": {
-    "test": "mocha --require babel/register",
     "transpile": "babel --stage 0 cli.js > cli.es5.js",
     "prepublish": "npm run transpile",
     "postpublish": "rm -rf *.es5.js"

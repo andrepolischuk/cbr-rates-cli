@@ -1,4 +1,4 @@
-# cbr-rates-cli [![Build Status][travis-image]][travis-url]
+# cbr-rates-cli
 
   > Get currency rates from Central Bank of Russia
 
