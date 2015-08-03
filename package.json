@@ -1,0 +1,35 @@
+{
+  "name": "cbr-rates-cli",
+  "description": "Get currency rates from Central Bank of Russia",
+  "version": "0.0.0",
+  "keywords": [
+    "cbr",
+    "central",
+    "bank",
+    "russia",
+    "currency",
+    "rates"
+  ],
+  "repository": "andrepolischuk/cbr-rates-cli",
+  "dependencies": {
+    "cbr-rates": "^0.1.0",
+    "chalk": "^1.1.0",
+    "ea": "^0.5.0",
+    "meow": "^3.3.0"
+  },
+  "devDependencies": {
+    "babel": "^5.5.6",
+    "mocha": "^2.2.5"
+  },
+  "bin": {
+    "cbr-rates": "cli.es5.js"
+  },
+  "scripts": {
+    "test": "mocha --require babel/register",
+    "transpile": "babel --stage 0 cli.js > cli.es5.js",
+    "prepublish": "npm run transpile",
+    "postpublish": "rm -rf *.es5.js"
+  },
+  "author": "Andrey Polischuk <andre.polischuk@gmail.com> (https://twitter.com/andrepolischuk)",
+  "license": "MIT"
+}
