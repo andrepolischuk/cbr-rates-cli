@@ -29,6 +29,6 @@
     "prepublish": "npm run transpile",
     "postpublish": "rm -rf *.es5.js"
   },
-  "author": "Andrey Polischuk <andre.polischuk@gmail.com> (https://twitter.com/andrepolischuk)",
+  "author": "Andrey Polischuk <andre.polischuk@gmail.com>",
   "license": "MIT"
 }
