@@ -37,7 +37,7 @@ cbrRates(date, (err, rates) => {
   each(rates, ({par, value}, id) => {
     const indent = length - integerLength(value);
     id = id.toUpperCase();
-    value = indentString(value.toFixed(4), ' ', indent);
+    value = indentString(value.toFixed(2), ' ', indent);
     console.log(`${id}  ${chalk.bold(value)}  ${chalk.grey(par)}`);
   });
 });
