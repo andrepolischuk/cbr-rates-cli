@@ -43,5 +43,5 @@ cbrRates(date, (err, rates) => {
 });
 
 function integerLength(num) {
-  return num.toFixed().toString().length;
+  return Math.floor(num).toFixed().toString().length;
 }
