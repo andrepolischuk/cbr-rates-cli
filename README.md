@@ -1,4 +1,4 @@
-# cbr-rates-cli
+# cbr-rates-cli [![Build Status][travis-image]][travis-url]
 
 > Get currency rates from Central Bank of Russia
 
@@ -49,5 +49,8 @@ cbr-rates --help
 ## License
 
 MIT
+
+[travis-url]: https://travis-ci.org/andrepolischuk/cbr-rates-cli
+[travis-image]: https://travis-ci.org/andrepolischuk/cbr-rates-cli.svg?branch=master
 
 [cbr-rates]: https://github.com/andrepolischuk/cbr-rates
