@@ -18,12 +18,15 @@
     "meow": "^3.3.0"
   },
   "devDependencies": {
-    "babel": "^5.5.6"
+    "ava": "^0.2.0",
+    "babel": "^5.5.6",
+    "exec-file": "^0.1.1"
   },
   "bin": {
     "cbr-rates": "cli.es5.js"
   },
   "scripts": {
+    "test": "babel-node test.js",
     "transpile": "babel --stage 0 cli.js > cli.es5.js",
     "prepublish": "npm run transpile",
     "postpublish": "rm -rf *.es5.js"
