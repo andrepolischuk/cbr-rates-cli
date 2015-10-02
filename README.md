@@ -1,29 +1,29 @@
 # cbr-rates-cli
 
-  > Get currency rates from Central Bank of Russia
+> Get currency rates from Central Bank of Russia
 
-  [cbr-rates][cbr-rates] - API for this module
+[cbr-rates][cbr-rates] - API for this module
 
 ```sh
 cbr-rates
-AMD  13.3833  100
-AUD  47.0135  1
-AZN  61.0384  1
-BGN  36.3857  1
-BRL  18.4122  1
-BYR  40.0618  10000  
-CAD  49.2374  1
-CHF  65.5121  1
-CNY  10.0025  1
-CZK  26.3402  10
-DKK  95.3754  10
-EUR  71.1475  1
-GBP  99.9597  1
+AMD  13.38  100
+AUD  47.01  1
+AZN  61.03  1
+BGN  36.38  1
+BRL  18.41  1
+BYR  40.06  10000  
+CAD  49.23  1
+CHF  65.51  1
+CNY  10.00  1
+CZK  26.34  10
+DKK  95.37  10
+EUR  71.14  1
+GBP  99.95  1
 ...
-USD  63.9988  1
-UZS  24.7769  1000
-XDR  89.7071  1
-ZAR  50.0534  10
+USD  63.99  1
+UZS  24.77  1000
+XDR  89.70  1
+ZAR  50.05  10
 ```
 
 ## Install
@@ -48,6 +48,6 @@ cbr-rates --help
 
 ## License
 
-  MIT
+MIT
 
 [cbr-rates]: https://github.com/andrepolischuk/cbr-rates

@@ -2,6 +2,7 @@
 import chalk from 'chalk';
 import cbrRates from 'cbr-rates';
 import each from 'ea';
+import indentString from 'indent-string';
 import meow from 'meow';
 
 const cli = meow({
@@ -25,10 +26,22 @@ if (dateString) {
 
 cbrRates(date, (err, rates) => {
   if (err) return;
+  const values = [];
+
+  each(rates, ({value}) => {
+    values.push(value);
+  });
+
+  const length = integerLength(Math.max(...values));
 
   each(rates, ({par, value}, id) => {
+    const indent = length - integerLength(value);
     id = id.toUpperCase();
-    value = value.toFixed(4);
+    value = indentString(value.toFixed(2), ' ', indent);
     console.log(`${id}  ${chalk.bold(value)}  ${chalk.grey(par)}`);
   });
 });
+
+function integerLength(num) {
+  return Math.floor(num).toFixed().toString().length;
+}
