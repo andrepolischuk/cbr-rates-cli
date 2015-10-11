@@ -20,8 +20,7 @@
   },
   "devDependencies": {
     "ava": "^0.2.0",
-    "babel": "^5.5.6",
-    "exec-file": "^0.1.1"
+    "babel": "^5.5.6"
   },
   "bin": {
     "cbr-rates": "cli.es5.js"
