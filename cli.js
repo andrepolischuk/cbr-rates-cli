@@ -5,16 +5,14 @@ import each from 'ea';
 import indentString from 'indent-string';
 import meow from 'meow';
 
-const cli = meow({
-  help: [
-    'Usage',
-    '  cbr-rates [date]',
-    '',
-    'Examples',
-    '  cbr-rates',
-    '  cbr-rates 2014.5.12'
-  ]
-});
+const cli = meow(`
+    Usage
+      cbr-rates [date]
+
+    Examples
+      cbr-rates
+      cbr-rates 2014.5.12
+`);
 
 const dateString = cli.input[0];
 let date;
