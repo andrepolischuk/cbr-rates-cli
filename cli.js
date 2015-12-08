@@ -22,8 +22,7 @@ if (dateString) {
   date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 }
 
-cbrRates(date, (err, rates) => {
-  if (err) return;
+cbrRates(date).then(rates => {
   const values = [];
 
   each(rates, ({value}) => {
