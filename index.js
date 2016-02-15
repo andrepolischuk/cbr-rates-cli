@@ -1,6 +1,5 @@
 import chalk from 'chalk';
 import cbrRates from 'cbr-rates';
-import each from 'ea';
 import indentString from 'indent-string';
 import meow from 'meow';
 
@@ -21,30 +20,27 @@ if (/\./.test(currencyId)) {
   [currencyId, dateString] = [dateString, currencyId];
 }
 
-let date;
-
-if (dateString) {
-  const [year, month, day] = dateString.split('.');
-  date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-}
+const date = parseDateString(dateString);
 
 cbrRates(date).then(rates => {
-  const values = [];
-
-  each(rates, ({value}) => {
-    values.push(value);
-  });
-
+  const values = Object.keys(rates).map(id => rates[id].value);
   const length = integerLength(Math.max(...values));
 
-  each(rates, ({par, value}, id) => {
+  Object.keys(rates).forEach(id => {
     if (currencyId && currencyId !== id) return;
+    let {par, value} = rates[id];
     const indent = length - integerLength(value);
     id = id.toUpperCase();
     value = indentString(value.toFixed(2), ' ', indent);
     console.log(`${id}  ${chalk.bold(value)}  ${chalk.grey(par)}`);
   });
 });
+
+function parseDateString(str) {
+  if (!str) return;
+  const [year, month, day] = dateString.split('.');
+  return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+}
 
 function integerLength(num) {
   return Math.floor(num).toFixed().toString().length;

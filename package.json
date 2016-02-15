@@ -14,7 +14,6 @@
   "dependencies": {
     "cbr-rates": "^0.3.2",
     "chalk": "^1.1.0",
-    "ea": "^0.5.0",
     "indent-string": "^2.1.0",
     "meow": "^3.3.0"
   },
