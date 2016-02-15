@@ -26,6 +26,10 @@
   "bin": {
     "cbr-rates": "cli.js"
   },
+  "files": [
+    "cli.js",
+    "index.es5.js"
+  ],
   "scripts": {
     "pretest": "npm run prepublish",
     "test": "ava",
