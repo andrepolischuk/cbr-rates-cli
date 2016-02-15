@@ -6,14 +6,21 @@ import meow from 'meow';
 
 const cli = meow(`
     Usage
-      cbr-rates [date]
+      cbr-rates [id] [date]
 
     Examples
       cbr-rates
+      cbr-rates usd
       cbr-rates 2014.5.12
 `);
 
-const dateString = cli.input[0];
+let currencyId = cli.input[0];
+let dateString = cli.input[1];
+
+if (/\./.test(currencyId)) {
+  [currencyId, dateString] = [dateString, currencyId];
+}
+
 let date;
 
 if (dateString) {
@@ -31,6 +38,7 @@ cbrRates(date).then(rates => {
   const length = integerLength(Math.max(...values));
 
   each(rates, ({par, value}, id) => {
+    if (currencyId && currencyId !== id) return;
     const indent = length - integerLength(value);
     id = id.toUpperCase();
     value = indentString(value.toFixed(2), ' ', indent);
