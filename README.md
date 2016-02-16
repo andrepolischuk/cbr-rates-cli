@@ -18,11 +18,11 @@ npm install --global cbr-rates-cli
 cbr-rates --help
 
   Usage
-    cbr-rates [id] [date]
+    cbr-rates [...id] [date]
 
   Examples
     cbr-rates
-    cbr-rates usd
+    cbr-rates usd eur
     cbr-rates 2014.5.12
 ```
 
