@@ -5,43 +5,48 @@ import meow from 'meow';
 
 const cli = meow(`
     Usage
-      cbr-rates [id] [date]
+      cbr-rates [...id] [date]
 
     Examples
       cbr-rates
-      cbr-rates usd
+      cbr-rates usd eur
       cbr-rates 2014.5.12
 `);
 
-let currencyId = cli.input[0];
-let dateString = cli.input[1];
+const [last] = cli.input.slice(-1);
+let ids = cli.input.map(id => id.toLowerCase());
+let date;
 
-if (/\./.test(currencyId)) {
-  [currencyId, dateString] = [dateString, currencyId];
+if (/\./g.test(last)) {
+  ids = ids.slice(0, -1);
+  date = parseDateString(last);
 }
 
-const date = parseDateString(dateString);
-
 cbrRates(date).then(rates => {
-  const values = Object.keys(rates).map(id => rates[id].value);
+  const values = Object.keys(rates)
+    .filter(id => isIdExist(id, ids))
+    .map(id => rates[id].value);
+
   const length = integerLength(Math.max(...values));
 
   Object.keys(rates).forEach(id => {
-    if (currencyId && currencyId !== id) return;
+    if (!isIdExist(id, ids)) return;
     let {par, value} = rates[id];
     const indent = length - integerLength(value);
-    id = id.toUpperCase();
     value = indentString(value.toFixed(2), ' ', indent);
-    console.log(`${id}  ${chalk.bold(value)}  ${chalk.grey(par)}`);
+    console.log(`${id.toUpperCase()}  ${chalk.bold(value)}  ${chalk.grey(par)}`);
   });
 });
 
 function parseDateString(str) {
-  if (!str) return;
-  const [year, month, day] = dateString.split('.');
+  const [year, month, day] = str.split('.');
   return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 }
 
 function integerLength(num) {
   return Math.floor(num).toFixed().toString().length;
+}
+
+function isIdExist(id, ids) {
+  return !ids.length || ids.indexOf(id) > -1;
 }
