@@ -1,7 +1,7 @@
 {
   "name": "cbr-rates-cli",
   "description": "Get currency rates from Central Bank of Russia",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "keywords": [
     "cbr",
     "central",
