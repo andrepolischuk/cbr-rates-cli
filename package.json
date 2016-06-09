@@ -13,7 +13,7 @@
     "pretest": "npm run prepublish",
     "test": "eslint . && ava",
     "prepublish": "babel index.js --out-file index.es5.js",
-    "postpublish": "rm -rf index.es5.js && git push --follow-tags"
+    "postpublish": "rimraf index.es5.js && git push --follow-tags"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "eslint": "^2.11.1",
     "eslint-config-airbnb-base": "^3.0.1",
     "eslint-plugin-import": "^1.8.1",
-    "execa": "^0.4.0"
+    "execa": "^0.4.0",
+    "rimraf": "^2.5.2"
   }
 }
