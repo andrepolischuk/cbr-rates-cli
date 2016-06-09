@@ -12,16 +12,16 @@
   ],
   "repository": "andrepolischuk/cbr-rates-cli",
   "dependencies": {
-    "cbr-rates": "^0.3.3",
-    "chalk": "^1.1.0",
+    "cbr-rates": "^0.3.4",
+    "chalk": "^1.1.3",
     "indent-string": "^2.1.0",
     "meow": "^3.7.0"
   },
   "devDependencies": {
-    "ava": "^0.11.0",
-    "babel-cli": "^6.5.1",
-    "babel-preset-es2015": "^6.5.0",
-    "execa": "^0.2.2"
+    "ava": "^0.15.2",
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "execa": "^0.4.0"
   },
   "bin": {
     "cbr-rates": "cli.js"
