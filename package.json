@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "pretest": "npm run prepublish",
-    "test": "ava",
+    "test": "eslint . && ava",
     "prepublish": "babel index.js --out-file index.es5.js",
     "postpublish": "rm -rf index.es5.js && git push --follow-tags"
   },
@@ -42,7 +42,11 @@
   "devDependencies": {
     "ava": "^0.15.2",
     "babel-cli": "^6.9.0",
+    "babel-eslint": "^6.0.4",
     "babel-preset-es2015": "^6.9.0",
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1",
     "execa": "^0.4.0"
   }
 }

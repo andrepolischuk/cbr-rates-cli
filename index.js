@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import cbrRates from 'cbr-rates';
-import indentString from 'indent-string';
 import meow from 'meow';
+import cbrRates from 'cbr-rates';
+import { grey, bold } from 'chalk';
+import indentString from 'indent-string';
 
 const cli = meow(`
     Usage
@@ -13,7 +13,20 @@ const cli = meow(`
       cbr-rates 2014.5.12
 `);
 
-const [last] = cli.input.slice(-1);
+function parseDateString(str) {
+  const [ year, month, day ] = str.split('.');
+  return new Date(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10));
+}
+
+function integerLength(num) {
+  return Math.floor(num).toFixed().toString().length;
+}
+
+function isIdExist(id, ids) {
+  return !ids.length || ids.indexOf(id) > -1;
+}
+
+const [ last ] = cli.input.slice(-1);
 let ids = cli.input.map(id => id.toLowerCase());
 let date;
 
@@ -31,22 +44,12 @@ cbrRates(date).then(rates => {
 
   Object.keys(rates).forEach(id => {
     if (!isIdExist(id, ids)) return;
-    let {par, value} = rates[id];
+
+    const { par, value } = rates[id];
     const indent = length - integerLength(value);
-    value = indentString(value.toFixed(2), ' ', indent);
-    console.log(`${id.toUpperCase()}  ${chalk.bold(value)}  ${chalk.grey(par)}`);
+    const formattedValue = indentString(value.toFixed(2), ' ', indent);
+
+    /* eslint-disable no-console */
+    console.log(`${id.toUpperCase()}  ${bold(formattedValue)}  ${grey(par)}`);
   });
 });
-
-function parseDateString(str) {
-  const [year, month, day] = str.split('.');
-  return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-}
-
-function integerLength(num) {
-  return Math.floor(num).toFixed().toString().length;
-}
-
-function isIdExist(id, ids) {
-  return !ids.length || ids.indexOf(id) > -1;
-}
