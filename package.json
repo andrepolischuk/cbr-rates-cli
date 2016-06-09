@@ -1,28 +1,7 @@
 {
   "name": "cbr-rates-cli",
-  "description": "Get currency rates from Central Bank of Russia",
   "version": "1.0.0",
-  "keywords": [
-    "cbr",
-    "central",
-    "bank",
-    "russia",
-    "currency",
-    "rates"
-  ],
-  "repository": "andrepolischuk/cbr-rates-cli",
-  "dependencies": {
-    "cbr-rates": "^0.3.4",
-    "chalk": "^1.1.3",
-    "indent-string": "^2.1.0",
-    "meow": "^3.7.0"
-  },
-  "devDependencies": {
-    "ava": "^0.15.2",
-    "babel-cli": "^6.9.0",
-    "babel-preset-es2015": "^6.9.0",
-    "execa": "^0.4.0"
-  },
+  "description": "Get currency rates from Central Bank of Russia",
   "bin": {
     "cbr-rates": "cli.js"
   },
@@ -36,6 +15,34 @@
     "prepublish": "babel index.js --out-file index.es5.js",
     "postpublish": "rm -rf index.es5.js && git push --follow-tags"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrepolischuk/cbr-rates-cli.git"
+  },
+  "keywords": [
+    "cbr",
+    "central",
+    "bank",
+    "russia",
+    "currency",
+    "rates"
+  ],
   "author": "Andrey Polischuk <andre.polischuk@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrepolischuk/cbr-rates-cli/issues"
+  },
+  "homepage": "https://github.com/andrepolischuk/cbr-rates-cli",
+  "dependencies": {
+    "cbr-rates": "^0.3.4",
+    "chalk": "^1.1.3",
+    "indent-string": "^2.1.0",
+    "meow": "^3.7.0"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "execa": "^0.4.0"
+  }
 }
